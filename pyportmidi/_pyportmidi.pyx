@@ -372,7 +372,7 @@ WriteShort(status <, data1><, data2>)
         self._check_open()
 
         if type(msg) is list:
-            msg = array.array('B',msg).tostring() # Markus Pfaff contribution
+            msg = array.array('B',msg).tobytes() # Markus Pfaff contribution
         cmsg = msg
 
         CurTime = Pt_Time()
