@@ -528,7 +528,8 @@ example: Read(50) returns all the events in the buffer,
         
         if length > 1024: raise IndexError, 'maximum buffer length is 1024'
         if length < 1: raise IndexError, 'minimum buffer length is 1'
-        NumEvents = Pm_Read(self.midi,buffer,length)
+        err = Pm_Read(self.midi,buffer,length)
+        NumEvents = int(err)
         if NumEvents < 0: raise Exception, Pm_GetErrorText(NumEvents)
         x=[]
         if NumEvents >= 1:
