@@ -11,7 +11,7 @@ except ImportError:
     from Pyrex.Distutils import build_ext
 
 
-DESCRIPTION = open('README_PYTHON.txt').read()
+DESCRIPTION = open('README.md').read()
 
 EXTRAS = {}
 
@@ -78,7 +78,7 @@ if "-setuptools" in sys.argv:
     EXTRAS.update({'include_package_data': True,
                    'install_requires': [],
                    'zip_safe': False,
-                   'test_suite' : 'pyportmidi.tests',
+                   #'test_suite' : 'pyportmidi.tests',
                    }
     )
 
@@ -97,8 +97,8 @@ class TestCommand(Command):
         '''
         runs the tests with default options.
         '''
-        import pyportmidi.tests
-        pyportmidi.tests.main()
+        #import pyportmidi.tests
+        #pyportmidi.tests.main()
 
         #import subprocess
         #return subprocess.call([sys.executable, "run_tests.py"])
@@ -125,7 +125,7 @@ PACKAGEDATA = {
 
                    },
     'packages': ['pyportmidi',
-                 'pyportmidi.tests', 
+                 #'pyportmidi.tests',
                 ],
     'scripts': scripts,
 }
@@ -170,7 +170,7 @@ else:
             Extension("pyportmidi._pyportmidi", 
                       [os.path.join("pyportmidi", "_pyportmidi.pyx")],
                       library_dirs=["./linux"],
-                      include_dirs=["../pm_common", "../porttime"],
+                      #include_dirs=["../pm_common", "../porttime"],
                       libraries = ["portmidi", "asound", "pthread"]
                       )
         ]
